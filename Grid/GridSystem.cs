@@ -39,15 +39,8 @@ public class GridSystem <TGridObject>
     }
 
     public GridPosition GetGridPosition(Vector3 worldPosition)
-    {
-
-        //int x = Mathf.RoundToInt(worldPosition.x - originPosition.x);
-        //int z = Mathf.RoundToInt(worldPosition.z - originPosition.z);
-        //Debug.Log(string.Format("worldPosition : {0} x : {1} y : {2}" , worldPosition , Mathf.RoundToInt(((worldPosition - originPosition).x) / cellSize), Mathf.RoundToInt(((worldPosition - originPosition).z) / cellSize)) );
-        //return new GridPosition(x/cellSize  );
-        //Mathf.FloorToInt(((worldPosition - originPosition).x) / cellSize),
-        // Mathf.FloorToInt(((worldPosition - originPosition).z) / cellSize));
-        return new GridPosition(
+    {        
+         return new GridPosition(
          Mathf.RoundToInt(worldPosition.x / cellSize),
          Mathf.RoundToInt(worldPosition.z / cellSize)
      );

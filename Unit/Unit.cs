@@ -98,15 +98,7 @@ public class Unit : MonoBehaviour
 
     private void Update()
     {
-        /*
-        GridPosition newGridPosition = levelGrid.GetGridPosition(transform.position);
-        if(newGridPosition != gridPosition)
-        {
-            levelGrid.UnitMoveAtGridPosition(gridPosition, newGridPosition,this);
-            gridPosition = newGridPosition;
-           
-        }
-        */
+       
     }
 
     public void GetBaseActionArray(out BaseAction[] baseActions)

@@ -17,10 +17,10 @@ public class ActionSystem : MonoBehaviour,IManager
     private bool isBusy = false;
     private bool isGameStarted = false;
 
-    public event EventHandler OnSelectedUnitChanged;
-    public event EventHandler OnSelectedActionChanged;
-    public event EventHandler<bool> OnIsBusyChanged;
-    public event EventHandler OnActionStarted;
+    public event EventHandler OnSelectedUnitChanged;   // 구독하는 객체 -> ActionSystemUI
+    public event EventHandler OnSelectedActionChanged; // 구독하는 객체 -> GridSystemVisual,ActionSystemUI
+    public event EventHandler<bool> OnIsBusyChanged;   // 구독하는 객체 -> ActionBusyUI,  역활 -> 선택한 동작이 끝날때까지 UI 버튼을 가리다가, 동작이 끝나면 UI를 지운다. 
+    public event EventHandler OnActionStarted;         // 
 
     public delegate void GameSceneDelegate();
   
@@ -69,7 +69,7 @@ public class ActionSystem : MonoBehaviour,IManager
         return false;
     }
 
-
+    
     private void SetBusy()
     {
         isBusy = true;
@@ -113,11 +113,17 @@ public class ActionSystem : MonoBehaviour,IManager
     #region  HandleSelectedAction에 대한 설명
     /*
       slectedUnit이 정해진 상태에서 버튼을 눌러 selectedAction이 정해졌다면
-      HandleSelectedAction은 해당 액션이 마우스로 선택한 지역 에서 유효한지 검사한다.
+      HandleSelectedAction()은 해당 액션이 마우스로 선택한 지역 에서 유효한지 검사한다.
       
-      유효한 입력이 들어왔다면 selectedAction에 setBusy를 걸어 
+      유효한 입력이 들어왔다면 selectedAction에 setBusy()를 걸어 
       해당 행동이 끝나기 전까지 다른 행동을 할 수 없게 만든다.
       
+      선택된 액션의 행동은 TakeAction()이라는 함수를 통해 실행된다.
+      TakeAction()은 액션들의 부모인 BaseAction의 추상함수이며,
+
+      매개 변수 1-> 유효한 입력의 마우스 위치, 
+               2-> 선택된 행동이 종료되었을 때 실행할 delegate
+     
      */
     #endregion
 

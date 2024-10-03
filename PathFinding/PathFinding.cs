@@ -31,8 +31,8 @@ public class Pathfinding : MonoBehaviour,IManager
         gridSystem = new GridSystem<PathNode>(width, height, cellSize, new Vector3(0,0,0),
             (GridSystem<PathNode> g, GridPosition gridPosition) => new PathNode(gridPosition));
 
-        //gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
-
+        
+        //해당 좌표애 ray를 쏴서 LayerMask가 obstacleLayerMask가 해당 좌표에 있다면 그 좌표를 이동 불가능 칸으로 설정 
         for (int x = 0; x < width; x++)
         {
             for (int z = 0; z < height; z++)

@@ -40,7 +40,8 @@ public class CameraManager : MonoBehaviour
                 Unit shooterUnit = shootAction.GetUnit();
                 Unit TargetUnit = shootAction.GetTargetUnit();
 
-               Vector3 cameraCharacterHeight = Vector3.up * 1.24f ;
+                Vector3 cameraCharacterHeight = Vector3.up * 1.24f ;
+                
                 
                 Vector3 ShootDir = (TargetUnit.transform.position - shooterUnit.transform.position).normalized;
                 Vector3 shoulderOffset = Quaternion.Euler(0,90,0) * ShootDir;
@@ -56,9 +57,6 @@ public class CameraManager : MonoBehaviour
                 actionCameraGameObject.transform.position = actionCameraPosition;
                 Vector3 targetPos = TargetUnit.transform.position + TargetUnit.transform.right * 0.5f;
                 actionCameraGameObject.transform.LookAt(targetPos + cameraCharacterHeight);
-
-
-                //Debug.Log(actionCameraPosition - SHOOT_CAMERA_VECTOR);
 
                 ShowActionCamera();
                 break;

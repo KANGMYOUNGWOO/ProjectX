@@ -31,9 +31,7 @@ public class MoveAction : BaseAction
        
         levelGrid = GameManager.GetManagerClass<LevelGrid>();
         unit = gameObject.GetComponent<Unit>();
-        
-        //targetPosition = transform.position;
-        
+                    
     }
 
     public override string GetActionName()
@@ -56,9 +54,7 @@ public class MoveAction : BaseAction
 
     public override void TakeAction(GridPosition grid, Action onAction)
     {
-        List<GridPosition> pathGridPostionList = pathFinding.FindPath(levelGrid.GetGridPosition(transform.position),grid,out int pathLength);
-        //Debug.Log(grid.x);
-        //Debug.Log(grid.z);
+        List<GridPosition> pathGridPostionList = pathFinding.FindPath(levelGrid.GetGridPosition(transform.position),grid,out int pathLength);        
         currentPositionIndex = 0;
         positionList = new List<Vector3>();
         StartPosition = transform.position;
@@ -72,7 +68,7 @@ public class MoveAction : BaseAction
         ActionStart(onAction);
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (!isActive) return;

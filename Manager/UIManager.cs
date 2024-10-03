@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour,IManager,ILoadable
     #endregion
 
     #region Event
-    //public event EventHandler OnShootAccuracyUI;
+
     public event EventHandler OnDisableSelectableUI;
     public event EventHandler OnSelectableConFirmButton;
     public event EventHandler OnEntryUIConfirmButton;
